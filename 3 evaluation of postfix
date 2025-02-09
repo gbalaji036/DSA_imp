@@ -15,10 +15,11 @@ void push(int item, int *top, int s[]) {
 } 
  
 // Function to pop an item from the stack 
-int pop(int *top, int s[]) { 
+int pop(int *top, int s[]) {
+    int item;
     if (*top == -1) 
         return -1; 
-    int item = s[*top]; 
+    item = s[*top]; 
     *top = *top - 1; 
     return item; 
 } 
