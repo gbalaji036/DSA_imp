@@ -1,0 +1,74 @@
+#gcd#
+int GCD(int m, int n) 
+{ 
+    if(m==n) 
+       return m; 
+    if(m > n) 
+      return GCD(m-n, n); 
+    if(m < n) 
+       return GCD(m, n-m); 
+}
+void main( ) 
+{ 
+int m, n, result; 
+printf(“enter the values of m and n\n”); 
+scanf(“%d%d”, &m,&n); 
+result = GCD(m,n); 
+printf(“GCD of %d and %d = %d\n”, m, n, result);
+}
+
+//////////////////////////////////////////////////////////////////////////
+#tower of hanio#
+
+#include<stdio.h> 
+#include<conio.h> 
+int count = 0; 
+
+void tower(int n, char source, char destination, char temp) 
+{ 
+     if(n==1) 
+       {  
+         printf("move %d disc from %c to %c\n",n,source,destination); 
+        count++; 
+        return; 
+    }
+       tower(n-1, source, temp, destination); 
+       printf("move %d disc from %c to %c\n",n,source,destination); 
+       count++; 
+       tower(n-1, temp, destination, source); 
+} 
+void main( ) 
+{ 
+
+int n; 
+clrser(); 
+printf("enter the number of discs\n"); 
+scanf("%d",&n); 
+tower(n,'S','D','T"); 
+printf("the total number of disc moves=%d",count); 
+getch();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+#ackerman#
+
+int ackerman(int m, int n) 
+{ 
+
+        if(m==0) 
+            return n+1; 
+         if(n==0) 
+            return (ackerman(m-1,1)); 
+            return(ackerman(m-1, (ackerman(m, n-1))));
+}
+void main( ) 
+{ 
+    int m, n, result; 
+    printf(“enter the value of m\n”); 
+    scanf(“%d”, &m); 
+    printf(“enter the value of n\n”); 
+    scanf(“%d”, &n); 
+    result = ackerman(m, n) 
+    printf(“ackerman(%d, %d) = %d\n”, m, n, result);
+
+}
